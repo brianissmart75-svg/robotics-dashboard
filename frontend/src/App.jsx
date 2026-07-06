@@ -6,7 +6,7 @@ import {
   Search, ShieldCheck, Zap, ExternalLink, Mail, Sun, Moon, Inbox, CheckCircle, Download, Globe, Code, FileText, HelpCircle,
   MessageCircle, Send, X, Gamepad2, Mic, MicOff, Play, Pause, Paperclip, BookOpen, Loader2,
   Trophy, Calendar, Film, User, ShieldAlert,
-  MapPin, Phone, Plus, Trash2, Briefcase, GraduationCap, Printer, Presentation
+  MapPin, Phone, Plus, Trash2, Briefcase, GraduationCap, Printer, Presentation, Sparkles
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoogleLogin } from '@react-oauth/google';
