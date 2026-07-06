@@ -1,0 +1,88 @@
+{
+  "students": [
+    {
+      "id": "12345",
+      "name": "Test Builder",
+      "grade": "9",
+      "totalHours": 0.1,
+      "competitionReady": false,
+      "joinedAt": "2026-04-21T11:11:32.546Z"
+    },
+    {
+      "id": "",
+      "name": "Jane Doe1234",
+      "grade": "9",
+      "totalHours": 0,
+      "competitionReady": false,
+      "joinedAt": "2026-05-07T04:56:11.441Z",
+      "scores": {}
+    },
+    {
+      "id": "ronald.cornish",
+      "name": "Ronald Cornish",
+      "grade": "9",
+      "totalHours": 0,
+      "competitionReady": false,
+      "joinedAt": "2026-05-08T08:26:44.977Z",
+      "scores": {}
+    }
+  ],
+  "sessions": [
+    {
+      "studentId": "ronald.cornish",
+      "studentName": "Ronald Cornish",
+      "startTime": "2026-05-08T10:19:38.820Z",
+      "activity": "Drive Time",
+      "status": "active"
+    }
+  ],
+  "logs": [
+    {
+      "studentId": "12345",
+      "studentName": "Test Builder",
+      "startTime": "2026-04-21T11:12:36.904Z",
+      "activity": "Onshape CAD",
+      "status": "completed",
+      "endTime": "2026-04-21T11:13:52.755Z",
+      "hours": 0,
+      "accomplishment": "Designed the structural supports for the intake mechanism in Onshape."
+    },
+    {
+      "studentId": "12345",
+      "studentName": "Test Builder",
+      "startTime": "2026-05-07T05:06:09.759Z",
+      "activity": "Frame Construction",
+      "status": "completed",
+      "endTime": "2026-05-07T05:10:49.305Z",
+      "hours": 0.1,
+      "accomplishment": "built the robot"
+    }
+  ],
+  "coaches": [
+    {
+      "id": "coach_1",
+      "name": "Ronald Cornish",
+      "username": "admin",
+      "password": "$2b$10$Jn.ZoYJme7alAxZR1tiWzOeWWQ.ZPE/zhMNcQFx.fYsB0Pdt2tN1m"
+    }
+  ],
+  "config": {
+    "hourThreshold": 20,
+    "activities": [
+      "YouTube FRC Research",
+      "Onshape CAD",
+      "Tinkercad",
+      "Drive Time",
+      "WPILib Coding",
+      "FRC Driver Station",
+      "RoboRIO Config",
+      "Encoders & Sensors",
+      "Frame Construction",
+      "Weight Management",
+      "Robot Build",
+      "PedroPathing",
+      "Pinpoint Odometry", "Fusion 360"
+    ]
+  },
+  "emailRequests": []
+}

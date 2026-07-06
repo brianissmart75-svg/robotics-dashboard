@@ -1,0 +1,438 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-950: #030712;
+  --navy-900: #0a0f1e;
+  --navy-800: #0f1629;
+  --navy-700: #162035;
+  --navy-600: #1e2d45;
+  
+  --gold-400: #fbbf24;
+  --gold-500: #f59e0b;
+  --gold-600: #d97706;
+
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-teal: #14b8a6;
+  --accent-green: #10b981;
+
+  --bg-color: #030712;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --glass-bg: rgba(10, 15, 30, 0.6);
+  --glass-border: rgba(59, 130, 246, 0.3);
+  --input-bg: rgba(15, 22, 41, 0.8);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.25);
+  --shadow-gold: 0 0 30px rgba(245, 158, 11, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  background-image: 
+    linear-gradient(rgba(3, 7, 18, 0.85), rgba(15, 22, 41, 0.92)),
+    url('/robotics_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background Grid Effect */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+.glass-card {
+  background: rgba(15, 22, 41, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(15, 22, 41, 0.6);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.text-glow-blue { text-shadow: 0 0 15px rgba(59, 130, 246, 0.5); }
+.text-glow-gold { text-shadow: 0 0 15px rgba(245, 158, 11, 0.5); }
+.text-glow-purple { text-shadow: 0 0 15px rgba(139, 92, 246, 0.5); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  text-transform: uppercase;
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+  color: #030712;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  text-transform: uppercase;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #fcd34d, #f59e0b);
+}
+
+.input-field {
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  color: var(--text-primary);
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.3s, color 0.3s;
+}
+
+.input-field:focus {
+  border-color: var(--accent-blue);
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item-wizard {
+  @apply flex flex-col items-center justify-center gap-1.5 px-3 py-2 w-20 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300;
+  color: var(--text-secondary);
+}
+
+.nav-item-wizard:hover {
+  @apply bg-white/5;
+  color: var(--text-primary);
+}
+
+.nav-item-wizard span {
+  @apply opacity-60 group-hover:opacity-100;
+}
+
+.active-blue { @apply bg-blue-500 text-white shadow-lg shadow-blue-500/20; }
+.active-purple { @apply bg-purple-500 text-white shadow-lg shadow-purple-500/20; }
+.active-gold { @apply bg-amber-500 text-black shadow-lg shadow-amber-500/20; }
+.active-slate { @apply bg-slate-500 text-white shadow-lg shadow-slate-500/20; }
+.active-purple-glow { @apply bg-purple-600 text-white shadow-lg shadow-purple-600/40 border-purple-400; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+/* ==========================================
+   SYPRIAN & DOCAIRC ECOLOGY STANDARD LIGHT MODE
+   High-Contrast, Premium Light Mode Overrides
+   ========================================== */
+
+body:not(.dark) {
+  --bg-color: #f8fafc !important;
+  --text-primary: #0f172a !important;
+  --text-secondary: #475569 !important;
+  --text-muted: #64748b !important;
+  --glass-bg: rgba(255, 255, 255, 0.85) !important;
+  --glass-border: rgba(15, 23, 42, 0.08) !important;
+  --input-bg: rgba(255, 255, 255, 0.9) !important;
+  --shadow-glow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+  --shadow-gold: 0 4px 20px rgba(217, 119, 6, 0.15) !important;
+  
+  /* Update navy/dark variables to light equivalents */
+  --navy-950: #f8fafc !important;
+  --navy-900: #f1f5f9 !important;
+  --navy-800: #e2e8f0 !important;
+  --navy-700: #cbd5e1 !important;
+  --navy-600: #94a3b8 !important;
+
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Override dark backgrounds */
+body:not(.dark) .bg-slate-950,
+body:not(.dark) .bg-slate-900,
+body:not(.dark) .bg-slate-800,
+body:not(.dark) .bg-slate-900\/80,
+body:not(.dark) .bg-slate-900\/95,
+body:not(.dark) .bg-slate-900\/40,
+body:not(.dark) .bg-slate-800\/50,
+body:not(.dark) .bg-black,
+body:not(.dark) .bg-black\/90,
+body:not(.dark) .bg-black\/80,
+body:not(.dark) .bg-black\/50,
+body:not(.dark) .bg-black\/40,
+body:not(.dark) .bg-black\/30,
+body:not(.dark) .bg-navy-950,
+body:not(.dark) .bg-navy-900,
+body:not(.dark) .bg-navy-800,
+body:not(.dark) .bg-\[\#030712\],
+body:not(.dark) .bg-\[\#020617\],
+body:not(.dark) .bg-\[\#0b1329\] {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Soft gray surfaces */
+body:not(.dark) .bg-white\/5,
+body:not(.dark) .bg-white\/10,
+body:not(.dark) .bg-slate-500\/10,
+body:not(.dark) .bg-slate-500\/20,
+body:not(.dark) .bg-slate-800\/20,
+body:not(.dark) .bg-\[\#121214\],
+body:not(.dark) .bg-\[\#1e1e24\] {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Interactive hover cards */
+body:not(.dark) .hover\:bg-white\/5:hover,
+body:not(.dark) .hover\:bg-white\/10:hover,
+body:not(.dark) .group:hover .bg-white\/5 {
+  background-color: #e2e8f0 !important;
+}
+
+/* Ensure contrast for text */
+body:not(.dark) .text-white,
+body:not(.dark) .text-slate-50,
+body:not(.dark) .text-slate-100,
+body:not(.dark) .text-slate-200,
+body:not(.dark) .text-slate-300,
+body:not(.dark) .text-slate-400,
+body:not(.dark) .text-slate-500,
+body:not(.dark) .text-navy-100,
+body:not(.dark) .text-navy-200,
+body:not(.dark) .text-navy-300,
+body:not(.dark) .text-purple-100,
+body:not(.dark) .text-\[\#f1f5f9\],
+body:not(.dark) .text-\[\#cbd5e1\],
+body:not(.dark) .text-\[\#f8fafc\] {
+  color: #1e293b !important;
+}
+
+/* High contrast headers */
+body:not(.dark) h1, body:not(.dark) h2, body:not(.dark) h3, body:not(.dark) h4, body:not(.dark) h5, body:not(.dark) h6,
+body:not(.dark) .text-3xl, body:not(.dark) .text-4xl, body:not(.dark) .text-5xl, body:not(.dark) .text-6xl,
+body:not(.dark) .font-black, body:not(.dark) .font-bold {
+  color: #0f172a !important;
+}
+
+/* Gold, Maroon, Blue, and Green accents should remain vibrant but on light bg */
+body:not(.dark) .text-amber-400,
+body:not(.dark) .text-amber-500,
+body:not(.dark) .text-yellow-500 {
+  color: #d97706 !important; /* Darken slightly for readability on white */
+}
+body:not(.dark) .text-emerald-400,
+body:not(.dark) .text-emerald-500 {
+  color: #059669 !important; /* Darken green */
+}
+body:not(.dark) .text-blue-400,
+body:not(.dark) .text-blue-500 {
+  color: #2563eb !important;
+}
+
+/* Form input styling overrides */
+body:not(.dark) input, body:not(.dark) select, body:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+body:not(.dark) input::placeholder, body:not(.dark) textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Custom scrollbars for light mode */
+body:not(.dark) ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+body:not(.dark) ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+body:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+body:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glass card enhancement */
+body:not(.dark) .glass-panel, body:not(.dark) .glass-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Awards Page Milestones Card gradient override */
+body:not(.dark) .bg-gradient-to-b.from-indigo-900\/40 {
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Dates Page Footer card gradient override */
+body:not(.dark) .bg-gradient-to-r.from-slate-900 {
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Learner's Wallet purple variables override */
+body:not(.dark) .bg-\[\#300050\],
+body:not(.dark) .bg-\[\#300050\]\/10,
+body:not(.dark) .bg-\[\#300050\]\/20,
+body:not(.dark) .bg-\[\#300050\]\/30,
+body:not(.dark) .bg-\[\#300050\]\/40,
+body:not(.dark) .bg-\[\#300050\]\/60 {
+  background-color: #f5f3ff !important;
+  color: #5b21b6 !important;
+  border-color: #ddd6fe !important;
+}
+
+body:not(.dark) .bg-\[\#300050\]\/10 * {
+  color: #1e293b !important;
+}
+
+body:not(.dark) .bg-\[\#300050\]\/10 .text-purple-200 {
+  color: #5b21b6 !important;
+}
+
+body:not(.dark) .from-\[\#300050\] {
+  --tw-gradient-from: #f5f3ff !important;
+  --tw-gradient-to: #ffffff !important;
+}
+
+body:not(.dark) .to-\[\#300050\] {
+  --tw-gradient-to: #f5f3ff !important;
+}
+
+body:not(.dark) .text-\[\#300050\] {
+  color: #5b21b6 !important;
+}
+
+body:not(.dark) .text-purple-200,
+body:not(.dark) .text-purple-300,
+body:not(.dark) .text-purple-400 {
+  color: #6d28d9 !important;
+}
+
+body:not(.dark) .placeholder-purple-300\/50::placeholder,
+body:not(.dark) .placeholder-purple-300\/40::placeholder {
+  color: #8b5cf6 !important;
+}
+
+body:not(.dark) .border-purple-900\/20,
+body:not(.dark) .border-purple-900\/30,
+body:not(.dark) .border-purple-900\/40 {
+  border-color: #e9d5ff !important;
+}
