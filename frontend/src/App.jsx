@@ -774,7 +774,7 @@ function Lobby({ setView, activeSessions, onGoogleLogin, onFacebookLogin }) {
           <strong>Instruction Manual:</strong> To claim these points, ensure you accurately select your name on the Check-In page. The AI Administrative Specialist automatically timestamps your arrival for the Early Bonus. Event participation is logged manually by the Coach on the Admin Dashboard based on your physical presence at the event. Keep your hours high to climb the rankings!
         </div>
       </div>
-      <div className="grid md:grid-cols-2 gap-8 items-stretch w-full">
+      <div className="grid md:grid-cols-3 gap-8 items-stretch w-full">
         <div className="glass-card p-10 flex flex-col items-center text-center group">
           <div className="w-20 h-20 rounded-3xl bg-blue-500/10 border-2 border-blue-500/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/10">
             <LogIn className="text-blue-400 w-10 h-10" />
@@ -840,6 +840,28 @@ function Lobby({ setView, activeSessions, onGoogleLogin, onFacebookLogin }) {
                 <p className="text-[10px] text-slate-700 mt-1 max-w-[150px]">Start a session on the left to track your work.</p>
               </div>
             )}
+          </div>
+        </div>
+
+        <div 
+          onClick={() => setView('presentation')} 
+          className="glass-card p-10 flex flex-col items-center text-center group cursor-pointer hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all"
+        >
+          <div className="w-20 h-20 rounded-3xl bg-purple-500/10 border-2 border-purple-500/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-purple-500/10">
+            <Presentation className="text-purple-400 w-10 h-10" />
+          </div>
+          <h2 className="text-4xl font-black mb-4 tracking-tighter text-glow-purple uppercase leading-none">
+            <span>Presentation</span>
+            <br />
+            <span className="text-purple-400">Maker</span>
+          </h2>
+          <p className="text-slate-400 mb-10 max-w-sm font-medium leading-relaxed">
+            Generate customized, district-approved slide decks for robotics presentations using Syprian AI.
+          </p>
+          <div className="flex flex-col w-full gap-4 max-w-xs mt-auto">
+            <button className="btn-primary text-lg py-4 w-full bg-gradient-to-r from-purple-600 to-indigo-700 border-purple-500/40 shadow-purple-500/20">
+              OPEN MAKER <ChevronRight className="w-5 h-5 inline ml-2" />
+            </button>
           </div>
         </div>
       </div>
